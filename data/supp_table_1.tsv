@@ -1,0 +1,6 @@
+chrom_PE	start_PE	stop_PE	PE_UNIQUE_ID	ID	gene	chrom_region	start_region	stop_region	
+REGION_UNIQUE_ID	MIM.Number	
+total_gene_name	Phenotypes	genetic.category	gene.score	syndromic
+chr1	1022734	1022781	TBD	NMD_in	AGRN	chr1	1022462	1035276	TBD	103320	AGRN, CMS8	Myasthenic syndrome, 
+congenital, 
+8, with pre- and postsynaptic defects, 615120 (3), Autosomal recessive	NA	NA	NA

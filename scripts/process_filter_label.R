@@ -12,7 +12,7 @@ vcf_file <- args[2]
 vcf <- read.csv(vcf_file, header = TRUE, sep = "\t")
 # read in latest DECIPHER genes release
 DDG2P <- read.csv("DDG2P_genes_8_1_2021.csv", header = TRUE)
-# read in HGNC gene name conversion file
+# Convert gene names to HGNC IDs for joining
 HGNC_con <- read.csv("HGNC_conversion.tsv", sep = "\t", header = TRUE)
 # read in latest OMIM phenotypes release
 OMIM <- read.csv("genemap2.txt", sep = "\t", header = TRUE) #/path/to/omim/genemap2.txt

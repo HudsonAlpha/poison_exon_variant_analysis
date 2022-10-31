@@ -20,7 +20,10 @@ htslib 1.9
 bedtools 2.30.0
 
 Example input:
-#TODO: what is this and what does it go into?
+1. VCFs were copied from the NYCKidseq Anvil bucket into personal workspace bucket
+2. Region BED file was uploaded to personal workspace bucket
+3. WDL was added as a workflow to the Anvil workflow repository ([https://portal.firecloud.org/?return=anvil#methods/safelker/bcftools_filter_bedtools_intersect/42])
+4. Input data list was created based on Anvil template and uploaded to personal workspace bucket. Example format:
 
 ```
 entity:NYCKidSeq_id	vcf_in
@@ -38,7 +41,6 @@ GEN19-121P-1-D1.octopus.legacy	gs://fc-secure-749755c3-4dac-45d9-9a02-237822a5b3
 
 
 Anvil WDL:
-[https://portal.firecloud.org/?return=anvil#methods/safelker/bcftools_filter_bedtools_intersect/42]
 `./anvil/bcftools_filter_bedtools_intersect.wdl`
 
 Docker image:
