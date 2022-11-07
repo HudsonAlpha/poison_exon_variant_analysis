@@ -13,10 +13,10 @@ See `PE_Region_generation.md`
 
 ### Local Requirements
 Local requirements are ensembl-vep, bcftools, htslib, bedtools, and R. The versions we used are:
-bcftools 1.9
-htslib 1.9
-bedtools 2.28.0
-R 3.6.1 (packages: tidyverse, edgeR, data.table, viridis)
+bcftools 1.9  
+htslib 1.9  
+bedtools 2.28.0  
+R 3.6.1 (packages: tidyverse, edgeR, data.table, viridis)  
 vep 102 with CADD plugin  
 
 ### Local Data Sources & Versions:
