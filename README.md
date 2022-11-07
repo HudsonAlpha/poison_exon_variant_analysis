@@ -3,7 +3,7 @@
 ## TODO
 1. add local_data (ucsc tables)
 2. add supp table 1, PE bed, ASNMD bed, update `./data/README.md` with column descriptions
-3. 
+3. Clean up language.
 
 ## Summary
 Summary here.
