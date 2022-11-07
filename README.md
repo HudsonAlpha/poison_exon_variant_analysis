@@ -35,6 +35,6 @@ Please cite our magnificent publication.
 
 ## Contact
 
-First author: Stephanie Felker, sfelker@hudsonalpha.org
-PI: Dr. Greg Cooper, gcooper@hudsonalpha.org
-Code Maintainer: James Lawlor, jlawlor@hudsonalpha.org
+First author: Stephanie Felker, sfelker@hudsonalpha.org  
+PI: Dr. Greg Cooper, gcooper@hudsonalpha.org  
+Code Maintainer: James Lawlor, jlawlor@hudsonalpha.org  
