@@ -1,9 +1,11 @@
 # Poison Exon
 
 ## TODO
-1. add local_data (ucsc tables)
 2. add supp table 1, PE bed, ASNMD bed, update `./data/README.md` with column descriptions
 3. Clean up language.
+4. Change input_list.txt to just be a single column of vcf paths (add basename in bash)
+5. Fix [ ] () in markdown links (scrips/readme)
+6. Quick test: Docker container, filter_and_annotate.sh, process_filter_label.R
 
 ## Summary
 Summary here.
