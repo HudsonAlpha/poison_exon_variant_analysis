@@ -233,12 +233,3 @@ paper_table <- matched_SFARI[,c("chrom_PE", "start_PE", "stop_PE", "ID", "gene",
 names(paper_table)[10] <- "total_gene_name"
 write.table(paper_table, "paper_table_draft2_oct23.txt", sep = "\t", col.names = TRUE, row.names = FALSE, quote = FALSE)
 ```
-
-
-
-```bash
-while read stage bam outputfile; do
-# ran on LSF using bsub -n 1 -R 'rusage[mem=50000]' -o logfile.txt
-samtools depth -a -b Canon_Files/Mus_SCN12389_exons_wPE_1based.bed ${bam} > ${outputfile}
-done<mouse_dev_bam_list.tsv
-```

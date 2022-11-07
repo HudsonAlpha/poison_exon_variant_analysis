@@ -7,6 +7,7 @@
 5. Fix [ ] () in markdown links (scrips/readme)
 6. Quick test: Docker container, filter_and_annotate.sh, process_filter_label.R
 7. Update PE_Region_Generation.md with code that adds new columns to supp table 1 and has correct filename.
+8. James update paper methods text from this as necessary.
 
 ## Summary
 Summary here.
