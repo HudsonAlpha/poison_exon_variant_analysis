@@ -1,4 +1,4 @@
-# PE Region Geneeration
+# PE Region Generation
 ## Summary
 This document walks through the R and Bash code used to generate human Poison Exon regions of interest.
 
