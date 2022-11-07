@@ -4,9 +4,9 @@
 3. region bed
 # Format
 ## Supp Table
-column  
-descripts  
-here  
+1. column  
+2. descripts  
+3. here  
 ## PE BED
 1. chromosome
 2. start
