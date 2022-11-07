@@ -17,7 +17,7 @@ bcftools 1.9
 htslib 1.9
 bedtools 2.28.0
 R 3.6.1 (packages: tidyverse, edgeR, data.table, viridis)
-vep 102 with CADD plugin 
+vep 102 with CADD plugin  
 
 ### Local Data Sources & Versions:
 #### VEP Data for annotation
