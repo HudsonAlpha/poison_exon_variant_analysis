@@ -15,19 +15,20 @@
 # Intersect with regions of interest
 # bgzip and index
 
-while read vcf output_file; do
+mkdir -p quality_filtered_variants/
+while read vcf; do
   #we parallelized the bcftools filter step with LSF, ex: bsub -R rusage[mem=100] -o logfile.txt <bcftools command>
 bcftools filter -i 'FORMAT/FT[0]=\"PASS\" && FORMAT/DP[0] > 10 && \
   GT[0]=\"het\" && (FORMAT/AD[0:0])/(FORMAT/DP[0]) < 0.8 && (FORMAT/AD[0:0])/(FORMAT/DP[0]) > 0.2' ${vcf} -Ov |
   bcftools annotate -x INFO,FORMAT | sed '/^##/d'| cut -f 1-10 |
   sed '1s/^/##fileformat=VCFv4.2\n##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n/' |
   bedtools intersect -a stdin -b regions_of_interest.bed -header -wa |
-  bgzip > ${output_file} && \
-  bcftools index ${output_file};
+  bgzip > quality_filtered_variants/$(basename vcf) && \
+  bcftools index quality_filtered_variants/$(basename vcf);
 done < input_list.txt
 
 # merge vcfs
-bcftools merge output_dir/*vcf.gz -Oz --force-samples -o output_merged.vcf.gz
+bcftools merge quality_filtered_variants/*vcf.gz -Oz --force-samples -o output_merged.vcf.gz
 
 # filter down those of low frequency in dataset. below filters for heterozygous variants that have a internal frequency of 2 or less
 bcftools view -i 'COUNT(GT=\"het\")<3' output_merged.vcf.gz | bgzip > output_AF2_merged.vcf.gz

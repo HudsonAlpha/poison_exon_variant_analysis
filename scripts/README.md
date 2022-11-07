@@ -38,18 +38,16 @@ See `.vep_config.ini`
 
 
 ### Merging, annotating and filtering variants from local VCFs to create a table of high-interest variants.
-Make tab-separated input_list.txt, as
+Using `filter_and_annotate.sh` and `input_list.txt` we filtered based on variant quality, annotated the variants with VEP (see `vep_config.ini`) and filtered for annotations of interest (see `process_filter_label.R`).
+
+#### Input
+`input_list.txt`, a list of VCFs to process (assuming VCFs are single-sample or that the proband is the first sample column)
 ```
-input_vcf_1.vcf.gz  output_dir/filtered_variants_1.vcf
-input_vcf_2.vcf.gz  output_dir/filtered_variants_2.vcf
+/path/to/sample1.vcf.gz
+/path/to/sample2.vcf.gz
+/path/to/sample3.vcf.gz
 ```
-where input_vcf_1 and input_vcf_2 are individual input VCFS to extract variants from.
-filtered_variants_1.vcf and filtered_variants_2.vcf are temporary individual outputs.
-
-
-#TODO: recommend we change the input so it's just a single list of VCFs and output directory name, then we can basename the filtered VCF names
-
-Overview  
+#### Overview  
 For each proband:  
 .....Filter for depth in proband greater than 10 reads  
 .....Filter for allele balance of proband between 0.2 - 0.8  
@@ -59,12 +57,12 @@ For each proband:
 Merge all proband VCFs  
 Filter to variants seen twice or less in cohort (bcftools)  
 VEP annotate (including gnomad, topmed, CADD, GERP)  
-Filter in R for disease-associated genes, population frequency, CADD, GERP, and proper protein effects   (process_filter_label.R)
+Filter in R for disease-associated genes, population frequency, CADD, GERP, and proper protein effects   (`process_filter_label.R`)
 
-resulting in:  
-PE_variants_labeled.tsv manageable output  
-PE_variants_AD_labeled_full.tsv full vcf info  
 
+#### Output
+`PE_variants_labeled.tsv` brief output table for manual review  
+`PE_variants_AD_labeled_full.tsv` full vcf info for manual review
 
 ### Acquisition of NYCKidSeq data via AnVIL
 We acquired NYCKidSeq whole genome data via AnVIL and developed an AnVIL workflow to extract variants in poison exon regions from each participant VCF.
@@ -80,7 +78,7 @@ Merging and downstream analysis were completed locally. Overall:
 5. Input data list was created based on Anvil template and uploaded to personal workspace bucket.
 6. Workflow was instantiated via personal AnVIL workspace
 7. Results (quality and PE-region filtered VCFs) were downloaded from personal Anvil workspace
-8. Further processing (merging, annotation, and analysis) were completed locally
+8. Further processing (merging, annotation, and analysis) were completed locally, as above
 
 
 #### Requirements

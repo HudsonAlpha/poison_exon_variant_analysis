@@ -1,11 +1,10 @@
 # Poison Exon
 
 ## TODO
-2. add supp table 1, PE bed, ASNMD bed, update `./data/README.md` with column descriptions
-3. Clean up language in readmes
-4. Change input_list.txt to just be a single column of vcf paths (add basename in bash)
-6. Quick test: Docker container, filter_and_annotate.sh, process_filter_label.R
-7. Update PE_Region_Generation.md with code that adds new columns to supp table 1 and has correct filename.
+2. stephanie add supp table 1, PE bed, ASNMD bed, update `./data/README.md` with column descriptions
+3. stephanie/james Clean up language in readmes
+6. james Quick test: Docker container, filter_and_annotate.sh, process_filter_label.R
+7. stephanie/james Update PE_Region_Generation.md with code that adds new columns to supp table 1 and has correct filename.
 8. James update paper methods text from this as necessary.
 
 ## Summary
