@@ -1,6 +1,6 @@
 # PE Region Geneeration
 ## Summary
-This document walks through the R and Bash code used to generate human Poison Exon regions of interest. 
+This document walks through the R and Bash code used to generate human Poison Exon regions of interest.
 
 ## Input Data
 1. `Non_redundant_cass_mm10_summary.txt` converted from [http://zhanglab.c2b2.columbia.edu/data/CortexAS_PNAS_2015/Non_redundant_cass_mm10_summary.xlsx] (Yan et al. 2015)
@@ -8,6 +8,7 @@ This document walks through the R and Bash code used to generate human Poison Ex
 3. `./local_data/mouse_mm10_all_exons.tsv` - From UCSC table browser, see comments
 4. `./local_data/NCBI_RefSeq_RefSeqAll_human.bed` From UCSC table browser, see comments
 5. `./local_data/refseq_mane_select.bed` from UCSC table browser, see comments
+6. `mm10ToHg38.over.chain.gz` from [http://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/mm10ToHg38.over.chain.gz]
 
 ## Requirements:
 R (w/ tidyverse), we used version 3.6.1
@@ -214,7 +215,7 @@ library(tidyverse)
 gene_matched_final <- read.csv("full_region_gene_matching_final_not_in_MANE_oct23.bed", sep = "\t", header = FALSE)
 
 # read in latest OMIM phenotypes release
-phenotypes <- read.csv("Canon_Files/genemap2_SAF.txt", sep = "\t", header = TRUE) #from /cluster/lab/gcooper/hg38/CNV_graphing/cnv_annotation_resources/omim/genemap2.txt
+phenotypes <- read.csv("Canon_Files/genemap2_SAF.txt", sep = "\t", header = TRUE) #from genemap2.txt with extra headers removed
 SFARI_Genes <- read.csv("SFARI-Gene_genes_07-20-2022release_09-06-2022export.csv", header = TRUE)
 
 names(gene_matched_final) <- c("chrom_PE", "start_PE", "stop_PE", "ID", "gene", "chrom_region", "start_region", "stop_region", "ID2", "frame", "strand")
