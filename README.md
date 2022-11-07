@@ -7,16 +7,25 @@ This contains example code and things for the paper.
 
 ## Data
 
-Data
+Supplementary data for Felker et al.
+1. Supplementary Table 1 (PE regions of interest and annotations)
+2. Poison Exons bed file (correspons to columns X and X of Supplementary Table 1)
+3. AS-NMD regions of interest (correspons to columns X and X of Supplementary Table 1)
+
+For column descriptions, see `data/README.md`
 
 ## Scripts
+Supplementary methods for Felker et al.
+Contains local code (R, Bash) and AnVIL code (Docker, WDL) used to generate PE regions of interest, extract VCF variants based on these regions, annotate, and filter to variants of interest for manual review.
 
-Scripts
+For more detail, see `scripts/README.md`
 
 ## Citation
 
-Publication info.
+Please cite our magnificent publication.
 
 ## Contact
 
-Contact.
+First author: Stephanie Felker, sfelker@hudsonalpha.org
+PI: Dr. Greg Cooper, gcooper@hudsonalpha.org
+Code Maintainer: James Lawlor, jlawlor@hudsonalpha.org
