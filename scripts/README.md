@@ -72,8 +72,10 @@ Merging and downstream analysis were completed locally. Overall:
 
 1. VCFs were copied from the NYCKidseq Anvil bucket into a personal workspace bucket
 2. PE Region BED file was uploaded to personal workspace bucket
-3. WDL was added as a workflow to the Anvil workflow repository: ([https://portal.firecloud.org/?return=anvil#methods/safelker/bcftools_filter_bedtools_intersect/42])
-4. Docker image was built and registered on DockerHub: https://hub.docker.com/layers/safelker/richard_cser_anvil/21_Dec_21_update/
+3. WDL was added as a workflow to the Anvil workflow repository:  
+([https://portal.firecloud.org/?return=anvil#methods/safelker/bcftools_filter_bedtools_intersect/42])
+4. Docker image was built and registered on DockerHub:  
+ https://hub.docker.com/layers/safelker/richard_cser_anvil/21_Dec_21_update/
 5. Input data list was created based on Anvil template and uploaded to personal workspace bucket.
 6. Workflow was instantiated via personal AnVIL workspace
 7. Results (quality and PE-region filtered VCFs) were downloaded from personal Anvil workspace
@@ -88,7 +90,7 @@ htslib 1.9
 bedtools 2.30.0  
 
 #### Docker Image
-We built a docker image available at
+We built a docker image available at  
 https://hub.docker.com/layers/safelker/richard_cser_anvil/21_Dec_21_update/
 See `./anvil/Dockerfile` for an equivalent buildable dockerfile.
 The Dockerfile includes additional tools (such as jupyter) which are
@@ -98,7 +100,8 @@ Note that the Terra base image for analysis was v1.0.0 but updated to v1.0.11 fo
 
 #### Workflow
 We built a WDL `./anvil/bcftools_filter_bedtools_intersect.wdl` to quality-filter variants and extract variants in poison exon regions.
-We registered the workflow with AnVIL here: https://portal.firecloud.org/?return=anvil#methods/safelker/bcftools_filter_bedtools_intersect/42
+We registered the workflow with AnVIL here:  
+https://portal.firecloud.org/?return=anvil#methods/safelker/bcftools_filter_bedtools_intersect/42
 
 #### Input Data Table Example
 ```
