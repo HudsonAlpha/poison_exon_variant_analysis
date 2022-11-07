@@ -50,11 +50,11 @@ filtered_variants_1.vcf and filtered_variants_2.vcf are temporary individual out
 
 Overview  
 For each proband:  
-.   Filter for depth in proband greater than 10 reads  
-.   Filter for allele balance of proband between 0.2 - 0.8  
-.   Isolate just proband record  
-.   Intersect with regions of interest  
-.   bgzip and index  
+.....Filter for depth in proband greater than 10 reads  
+.....Filter for allele balance of proband between 0.2 - 0.8  
+.....Isolate just proband record  
+.....Intersect with regions of interest  
+.....bgzip and index  
 Merge all proband VCFs  
 Filter to variants seen twice or less in cohort (bcftools)  
 VEP annotate (including gnomad, topmed, CADD, GERP)  
