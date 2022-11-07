@@ -192,7 +192,7 @@ total_pass12$E <- gsub("-.*", "", total_pass12$E)
 #create beds of both PE and ASNMD regions
 write.table(total_pass12[,c("chrom", "E","F","ID_2")], "designated_poison_exons_oct23.bed", sep = "\t", col.names = FALSE, row.names = FALSE, quote = FALSE)
 write.table(total_pass12[,c("chrom", "B","C","ID_2")], "designated_ASNMD_regions_oct23.bed", sep = "\t", col.names = FALSE, row.names = FALSE, quote = FALSE)
-
+```
 
 ```bash
 #Lifted over into human hg38 using the UCSC liftover tool
