@@ -6,6 +6,9 @@ Scripts and example code for:
 2. Quality-filtering, annotation, and effect-filtering of VCF variants in PE regions
 3. Terra / AnVIL quality filtering and selection of VCF variants in PE regions
 
+These scripts are intended as examples and documentation and may require some alteration for local implementation.
+They have not been extensively tested in non-local environments.
+
 ## Poison Exon Region Generation
 See `PE_Region_generation.md`
 
