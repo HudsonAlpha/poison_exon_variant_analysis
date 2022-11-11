@@ -8,7 +8,8 @@ This document walks through the R and Bash code used to generate human Poison Ex
 3. `./local_data/mouse_mm10_all_exons.tsv` - From UCSC table browser, see comments
 4. `./local_data/NCBI_RefSeq_RefSeqAll_human.bed` From UCSC table browser, see comments
 5. `./local_data/refseq_mane_select.bed` from UCSC table browser, see comments
-6. `mm10ToHg38.over.chain.gz` from [http://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/mm10ToHg38.over.chain.gz]
+6.  `./local/data/NCBI_RefSeq_RefSeqAll_human_introns.bed` from UCSC table browser
+7. `mm10ToHg38.over.chain.gz` from [http://hgdownload.cse.ucsc.edu/goldenpath/mm10/liftOver/mm10ToHg38.over.chain.gz]
 
 ## Requirements:
 R (w/ tidyverse), we used version 3.6.1
