@@ -1,7 +1,7 @@
 # Files
-1. supp table tsv
-2. PE bed
-3. region bed
+1. Supp Table 1: tsv w annotations
+2. Supp Table 2: PE bed
+3. Supp Table 3: PE-containing intron bed
 # Format
 ## Supp Table
 1. column  
