@@ -1,9 +1,12 @@
-# Files
-1. Supp Table 1: tsv w annotations
-2. Supp Table 2: PE bed
-3. Supp Table 3: PE-containing intron bed
-# Format
-## Supplementary Table 1 - Annotated table of poison exon cassettes and their containing introns
+# Supplementary Data for Felker et al. 2022: Implementation of Poison Exon Annotation in Clinical Variant Analysis and Identification of Intronic Variants Affecting Poison Exon Inclusion 
+## Summary
+Supplementary Table 1 contains hg38 genomic coordinates of intronic regions that may be affected by clinically-relevant poison exon inclusion as described in Felker et al. 2022, Implementation of Poison Exon Annotation in Clinical Variant Analysis and Identification of Intronic Variants Affecting Poison Exon Inclusion. Regions were identified via conservation to mouse cortex RNAseq data (Yan et al. 2015) and annotated with data from OMIM and SFARI genes to determine potential clinical relevance.
+## Files
+Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv
+Felker2022SuppelementaryTable2_hg38_PE_cassettes.bed
+Felker2022SuppelementaryTable3_hg38_PE_containing_elements.bed
+## Format
+### Supplementary Table 1 - Annotated table of poison exon cassettes and their containing introns
 Tab-separated text file (`.tsv`) with the following columns
 1.	PE_chromosome - genomic coordinates of the poison exon cassette 
 2.	PE_start - genomic coordinates of the poison exon cassette
@@ -21,12 +24,12 @@ Tab-separated text file (`.tsv`) with the following columns
 14.	SFARI_genetic_category - From SFARI genes 
 15.	SFARI_gene_score - From SFARI genes
 16.	SFARI_syndromic - From SFARI genes
-## Supplementary Table 2 - BED file of poison exon cassette coordinates (hg38)
+### Supplementary Table 2 - BED file of poison exon cassette coordinates (hg38)
 1. chrom - Supp Table 1 column 1
 2. chromStart - Supp Table 1 column 2
 3. chromEnd - Supp Table 1 column 3
 4. name - Supp Table 1 column 4
-## Supplementary Table 3 - BED file of intronic regions containing one or more poison exons (hg38)
+### Supplementary Table 3 - BED file of intronic regions containing one or more poison exons (hg38)
 1. chromosome - Supp Table 1 column 8
 2. start - Supp Table 1 column 9
 3. end - Supp Table 1 column 10
