@@ -228,8 +228,18 @@ matched_phenotypes <- left_join(gene_matched_final, phenotypes, by = c("gene"="A
 # label regions with SFARI gene scores
 matched_SFARI <- left_join(matched_phenotypes,SFARI_Genes, by = c("gene"="gene.symbol"))
 # create table for paper
-paper_table <- matched_SFARI[,c("chrom_PE", "start_PE", "stop_PE", "ID", "gene", "chrom_region", "start_region", "stop_region", "MIM.Number", "Gene.Symbols", "Phenotypes", "genetic.category", "gene.score", "syndromic")]
+draft_paper_table <- matched_SFARI[,c("chrom_PE", "start_PE", "stop_PE", "ID", "gene", "chrom_region", "start_region", "stop_region", "MIM.Number", "Gene.Symbols", "Phenotypes", "genetic.category", "gene.score", "syndromic")]
 # complete alt names for those that have none
-names(paper_table)[10] <- "total_gene_name"
-write.table(paper_table, "paper_table_draft2_oct23.txt", sep = "\t", col.names = TRUE, row.names = FALSE, quote = FALSE)
+names(draft_paper_table)[10] <- "total_gene_name"
+
+# Draft paper table has 1943 rows
+
+# Add on element IDs from NCBI_RefSeq_RefSeqAll_human_introns, 
+# After join, manually remove duplicates and intron ID/gene name mismatches due to a couple exons with identical coordinates and a complex overlap between 1 PE and 2 unique introns
+# Add a field with a unique identifier for each PE in format PE_<#>_of_<#total>_in_<intron_id>
+
+inner_join(draft_paper_table,NCBI_RefSeq_RefSeqAll_human_introns, by=c('chrom_region'='X1','start_region'='X2','stop_region'='X3')) %>% filter(!(X4=="NM_001387356.1_intron_5_0_chr19_56818703_r" & gene=="PEG3")) %>% filter(!(X4=="NM_006210.3_intron_2_0_chr19_56818703_r" & gene=="ZIM2")) %>% filter(!(total_gene_name=="MYO18A, SPR210" & X4=="NM_078471.4_intron_0_0_chr17_29074915_r")) %>% filter(!(X4=="NM_006564.2_intron_0_0_chr3_45943541_f" & gene=="FYCO1")) %>% filter(!(gene=="CXCR6" & X4=="NM_024513.4_intron_3_0_chr3_45936544_r")) %>% filter(X4!="NM_001387356.1_intron_5_0_chr19_56818703_r") %>% group_by(X4) %>% mutate(pe_id=paste0("PE_", row_number(), "_of_", n(), "_in_", X4)) %>% select(PE_chromosome=chrom_PE, PE_start=start_PE, PE_end=stop_PE, PE_identifier=pe_id, Cassette_Yan_2015_Class=ID, gene_symbol=gene, alt_gene_list=total_gene_name, element_chromosome=chrom_region, element_start=start_region, element_end=stop_region, element_identifier=X4, MIM_number=MIM.Number,MIM_phenotypes=Phenotypes, SFARI_genetic_category=genetic.category, SFARI_gene_score=gene.score, SFARI_syndromic=syndromic) %>% ungroup() %>% write_tsv('Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv')
+
+# Final supp table 1 has 1937 rows, of which 1936 are unique genomic coordinates. One PE, chr3:45945764-45945923 belongs to two introns with slightly different coordinates, and is assigned to both elements NM_006564.2_intron_0_0_chr3_45943541_f and NM_024513.4_intron_3_0_chr3_45936544_r (each with a unique PE ID).
+# The 1937 PEs are found in 1873 unique introns, with 1815 introns containing 1 PE, 52 introns containing 2 PE and 6 introns containing 3 PE
 ```
