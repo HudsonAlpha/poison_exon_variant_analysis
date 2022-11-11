@@ -243,3 +243,8 @@ inner_join(draft_paper_table,NCBI_RefSeq_RefSeqAll_human_introns, by=c('chrom_re
 # Final supp table 1 has 1937 rows, of which 1936 are unique genomic coordinates. One PE, chr3:45945764-45945923 belongs to two introns with slightly different coordinates, and is assigned to both elements NM_006564.2_intron_0_0_chr3_45943541_f and NM_024513.4_intron_3_0_chr3_45936544_r (each with a unique PE ID).
 # The 1937 PEs are found in 1873 unique introns, with 1815 introns containing 1 PE, 52 introns containing 2 PE and 6 introns containing 3 PE
 ```
+
+```bash
+cut -f 1-4 Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv > Felker2022SuppelementaryTable2_hg38_PE_cassettes.bed
+cut -f 8-11 Felker2022SuppelementaryTable1_hg38_PE_cassettes_elements_annotated.tsv > Felker2022SuppelementaryTable3_hg38_PE_elements.bed
+```
