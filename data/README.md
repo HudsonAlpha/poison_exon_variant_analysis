@@ -1,10 +1,10 @@
-# Supplementary Data for Felker et al. 2022: Implementation of Poison Exon Annotation in Clinical Variant Analysis and Identification of Intronic Variants Affecting Poison Exon Inclusion 
+# Supplementary Data for Felker et al. 2023: Poison exon annotations improve the yield of clinically relevant variants in genomic diagnostic testing
 ## Summary
 Supplementary Table 1 contains hg38 genomic coordinates of intronic regions that may be affected by clinically-relevant poison exon inclusion as described in Felker et al. 2022, Implementation of Poison Exon Annotation in Clinical Variant Analysis and Identification of Intronic Variants Affecting Poison Exon Inclusion. Regions were identified via conservation to mouse cortex RNAseq data (Yan et al. 2015) and annotated with data from OMIM and SFARI genes to determine potential clinical relevance.
 ## Files
-Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv  
-Felker2022SuppelementaryTable2_hg38_PE_cassettes.bed  
-Felker2022SuppelementaryTable3_hg38_PE_containing_elements.bed. 
+Felker2023SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv  
+Felker2023SuppelementaryTable2_hg38_PE_cassettes.bed  
+Felker2023SuppelementaryTable3_hg38_PE_containing_elements.bed. 
 ## Format
 ### Supplementary Table 1 - Annotated table of poison exon cassettes and their containing introns
 Tab-separated text file (`.tsv`) with the following columns

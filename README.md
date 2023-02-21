@@ -33,6 +33,6 @@ Code Maintainer: James Lawlor, jlawlor@hudsonalpha.org
 
 2022-11-11 - initial public release of repository
 
-2023-01-13 - bioRxiv preprint, tagged as Preprint 2023-01-13
+2023-01-13 - bioRxiv preprint, tagged as biorxiv_20230113
 
-2023-02-21 - Update repository with bioRxiv preprint information. Add HGVS notation to Supplementary Table 1 (see `data/Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv`)
+2023-02-21 - Update repository with bioRxiv preprint information. Add HGVS notation to Supplementary Table 1 (see `data/Felker2023SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv`). Change 2022 to 2023 in files and README. Tagged as biorxiv_20230113.2
