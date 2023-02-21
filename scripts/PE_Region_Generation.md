@@ -241,6 +241,20 @@ names(draft_paper_table)[10] <- "total_gene_name"
 
 inner_join(draft_paper_table,NCBI_RefSeq_RefSeqAll_human_introns, by=c('chrom_region'='X1','start_region'='X2','stop_region'='X3')) %>% filter(!(X4=="NM_001387356.1_intron_5_0_chr19_56818703_r" & gene=="PEG3")) %>% filter(!(X4=="NM_006210.3_intron_2_0_chr19_56818703_r" & gene=="ZIM2")) %>% filter(!(total_gene_name=="MYO18A, SPR210" & X4=="NM_078471.4_intron_0_0_chr17_29074915_r")) %>% filter(!(X4=="NM_006564.2_intron_0_0_chr3_45943541_f" & gene=="FYCO1")) %>% filter(!(gene=="CXCR6" & X4=="NM_024513.4_intron_3_0_chr3_45936544_r")) %>% filter(X4!="NM_001387356.1_intron_5_0_chr19_56818703_r") %>% group_by(X4) %>% mutate(pe_id=paste0("PE_", row_number(), "_of_", n(), "_in_", X4)) %>% select(PE_chromosome=chrom_PE, PE_start=start_PE, PE_end=stop_PE, PE_identifier=pe_id, Cassette_Yan_2015_Class=ID, gene_symbol=gene, alt_gene_list=total_gene_name, element_chromosome=chrom_region, element_start=start_region, element_end=stop_region, element_identifier=X4, MIM_number=MIM.Number,MIM_phenotypes=Phenotypes, SFARI_genetic_category=genetic.category, SFARI_gene_score=gene.score, SFARI_syndromic=syndromic) %>% ungroup() %>% write_tsv('Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv')
 
+
+# Add HGVS nomenclature 
+
+# read Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv in as Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated
+# read in genbank IDs from scripts/local_data/genbank_accessions.txt as nc
+with_hgvs <- inner_join(Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated, nc)
+names(nc) = c('PE_chromosome', 'PE_Genbank')
+with_hgvs <- inner_join(Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated, nc)
+
+# To convert from BED coordinates to HGVS coordinates we must convert the start coordinate to one-based
+with_hgvs <- with_hgvs %>% mutate("PE_HGVS"=paste0(PE_Genbank, ":g.", PE_start+1, "_", PE_end), element_HGVS=paste0(PE_Genbank, ":g.", element_start+1, "_", element_end)) %>% select(-PE_Genbank)
+with_hgvs %>% write_tsv("Felker2022SuppelementaryTable1_hg38_PE_cassettes_and_elements_annotated.tsv")
+
+
 # Final supp table 1 has 1937 rows, of which 1936 are unique genomic coordinates. One PE, chr3:45945764-45945923 belongs to two introns with slightly different coordinates, and is assigned to both elements NM_006564.2_intron_0_0_chr3_45943541_f and NM_024513.4_intron_3_0_chr3_45936544_r (each with a unique PE ID).
 # The 1937 PEs are found in 1873 unique introns, with 1815 introns containing 1 PE, 52 introns containing 2 PE and 6 introns containing 3 PE
 ```

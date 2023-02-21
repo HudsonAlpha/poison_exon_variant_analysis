@@ -24,6 +24,8 @@ Tab-separated text file (`.tsv`) with the following columns
 14.	SFARI_genetic_category - From SFARI genes 
 15.	SFARI_gene_score - From SFARI genes
 16.	SFARI_syndromic - From SFARI genes
+17.     PE_HGVS - genomic coordinates of the poison exon cassette in HGVS notation for assembly GCA_000001405.29 (GRCh38.p14)
+18.     element_HGVS - genomic coordinates of the RefSeq intron containing the poison exon cassette in HGVS notation for assembly GCA_000001405.29 (GRCh38.p14)
 ### Supplementary Table 2 - BED file of poison exon cassette coordinates (hg38)
 1. chrom - Supp Table 1 column 1
 2. chromStart - Supp Table 1 column 2
