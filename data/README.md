@@ -36,3 +36,8 @@ Tab-separated text file (`.tsv`) with the following columns
 2. start - Supp Table 1 column 9
 3. end - Supp Table 1 column 10
 4. name - Supp Table 1 column 11
+
+
+Supplementary Tables 2 and 3 are available as UCSC Genome Browser Custom Tracks at these URLs:
+https://raw.githubusercontent.com/HudsonAlpha/poison_exon_variant_analysis/main/data/tracks/Felker2023SuppelementaryTable2_hg38_PE_cassettes.bed
+https://raw.githubusercontent.com/HudsonAlpha/poison_exon_variant_analysis/main/data/tracks/Felker2023SuppelementaryTable3_hg38_PE_containing_elements.bed

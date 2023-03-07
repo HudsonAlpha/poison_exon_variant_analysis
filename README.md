@@ -13,6 +13,11 @@ Supplementary data for Felker et al.
 
 For column descriptions, see `data/README.md`
 
+Supplementary Tables 2 and 3 are available as UCSC Genome Browser Custom Tracks at these URLs:
+https://raw.githubusercontent.com/HudsonAlpha/poison_exon_variant_analysis/main/data/tracks/Felker2023SuppelementaryTable2_hg38_PE_cassettes.bed
+https://raw.githubusercontent.com/HudsonAlpha/poison_exon_variant_analysis/main/data/tracks/Felker2023SuppelementaryTable3_hg38_PE_containing_elements.bed
+
+
 ## Scripts
 Supplementary methods for Felker et al. 2023, Poison exon annotations improve the yield of clinically relevant variants in genomic diagnostic testing.
 Contains local code (R, Bash) and AnVIL code (Docker, WDL) used to generate PE regions of interest, extract VCF variants based on these regions, annotate, and filter to variants of interest for manual review.
