@@ -1,4 +1,4 @@
-PE_chromosome PE_start  PE_end  Yan_Consequence gene_symbol element_chromosome  element_start element_end RefSeq_intron_identifier
+PE_chromosome PE_start  PE_end  Yan_Consequence gene_symbol element_chromosome  element_start element_end RefSeq_intron_identifier  score strand
 chr2	20037810	20038153	NMD_in_Laptm4a	LAPTM4A	chr2	20037614	20040890	NM_014713.5_intron_4_0_chr2_20037615_r	0	-
 chr12	56158901	56158919	NMD_in_Myl6	MYL6	chr12	56158711	56159586	NM_021019.5_intron_1_0_chr12_56158712_f	0	+
 chr17	31257687	31257726	NMD_in_Nf1	NF1	chr17	31253000	31258343	NM_001042492.3_intron_30_0_chr17_31253001_f	0	+
