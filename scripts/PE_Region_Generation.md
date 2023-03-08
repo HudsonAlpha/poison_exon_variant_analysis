@@ -28,12 +28,12 @@ write.table(bed_allgene, "human_all_select_exons.bed", sep = "\t", col.names = F
 # read in AS-NMD file from Yan. Obtained from https://zhanglab.c2b2.columbia.edu/index.php/Cortex_AS, "Annotation of non-redundant cassette exons"
 df <- read.csv("Non_redundant_cass_mm10_summary.txt", sep = "\t", header = TRUE)
 # filter for just elements with conserved splice sites in hg19
-df_conserved <- df[which(df$AG.GU.in.hg19 == 1),]
-dim(df_conserved)
+df_conserved <- df[which(df$AG.GU.in.hg19 == 1),] # This is Felker2023SuppelementaryTable5_Criteria1_elements.tsv
+dim(df_conserved) 
 [1] 47918    27
 # filter for elements where NMD is induced upon inclusion
 df_conserved$NMD <- ifelse(grepl("NMD_in", df_conserved$NMD.classification), "1", ifelse(grepl("other", df_conserved$NMD.classification), "-1", "0"))
-df_conserved_ASNMD <- df_conserved[which(df_conserved$NMD > 0),]
+df_conserved_ASNMD <- df_conserved[which(df_conserved$NMD > 0),] # This is Felker2023SuppelementaryTable6_Criteria2_elements.tsv
 dim(df_conserved_ASNMD)
 [1] 2730   28
 #filter output and create an ID field
@@ -203,6 +203,11 @@ liftOver  -minMatch=0.1 designated_ASNMD_regions_oct23.bed Canon_Files/mm10ToHg3
 # 3. Ensure the regions lifted over are in the appropriate genes
 bedtools intersect -a designated_poison_exons_converted_oct23.bed -b human_all_select_genes.bed -wa -wb > designated_poison_exons_allgene_intersect_oct23.bed
 awk 'BEGIN { FS=OFS="\t" } { print $1, $2, $3, $4, $9 }' designated_poison_exons_allgene_intersect_oct23.bed | uniq > designated_poison_exons_labeled_oct23.bed
+
+# create a list of introns with PEs that pass Criteria 3
+bedtools intersect -a designated_poison_exons_labeled_oct23.bed -b ../Canon_Files/NCBI_RefSeq_RefSeqAll_human_introns.bed  -wa -wb > Criteria_3.txt 
+# this is Felker2023SuppelementaryTable7_Criteria3_elements.tsv
+
 
 # remove regions that overlap with any human mane transcript: these would be canonical human exons NCBI RefSeq Select and MANE (nbciRefSeqSelect) dataset table
 bedtools intersect -v -a designated_poison_exons_labeled_oct23.bed -b refseq_mane_select.bed | uniq | sort -k1,1 -k2,2n > PE_gene_matching_final_not_in_MANE_oct23.bed
